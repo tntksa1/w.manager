@@ -17,6 +17,6 @@ public class BackGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bgRender.material.mainTextureOffset+= new Vector2(Speed*Time.deltaTime,0);
+        bgRender.material.mainTextureOffset+= new Vector2(0,Speed*Time.deltaTime);
     }
 }
