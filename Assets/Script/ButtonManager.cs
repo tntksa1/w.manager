@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro; // Required for TextMeshPro
 
 public class ButtonManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class ButtonManager : MonoBehaviour
 
     [Header("Sound")]
     public Button soundButton;
-    public Text soundButtonText; // Legacy UI Text
+    public TMP_Text soundButtonText; // TextMeshPro UI text
 
     private bool soundOn = true;
 
@@ -26,6 +27,14 @@ public class ButtonManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(gameSceneName);
+    }
+
+    // Called by the Play Again button (e.g. on Game Over screen)
+    public void PlayAgain()
+    {
+        // Reloads the currently active scene
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 
     // Called by the Sound button
